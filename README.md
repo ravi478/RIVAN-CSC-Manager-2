@@ -41,13 +41,28 @@ For first-run testing only:
 
 The workflow installs JDK 17, Android SDK and Gradle 8.11.1, then runs `gradle assembleDebug`.
 
-## Local build (optional)
+## Gradle launcher included
 
-Requires JDK 17, Android SDK Platform 35 and Gradle 8.11.1:
+The repository includes `gradlew`, `gradlew.bat`, and
+`gradle/wrapper/gradle-wrapper.properties`, pinned to Gradle 8.11.1.
+The launcher downloads the pinned Gradle distribution on first use, so
+Gradle does not need to be installed manually. Internet is required for
+the first download.
+
+Windows Command Prompt or PowerShell:
+
+```bat
+gradlew.bat assembleDebug
+```
+
+Linux/macOS/Git Bash:
 
 ```bash
-gradle assembleDebug
+./gradlew assembleDebug
 ```
+
+A local APK build still requires JDK 17 and Android SDK. GitHub Actions
+installs those prerequisites automatically and runs `./gradlew`.
 
 ## Important scope and limitations
 
